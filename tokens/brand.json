@@ -1,0 +1,25 @@
+{
+  "$schema": "https://design-tokens.github.io/community-group/format/",
+  "color": {
+    "mint": {
+      "$type": "color",
+      "$value": "#22c55e",
+      "$description": "MintShelf seed and recognition color"
+    },
+    "mintDark": { "$type": "color", "$value": "#16a34a" },
+    "ink": { "$type": "color", "$value": "#0f1419" },
+    "paper": { "$type": "color", "$value": "#ffffff" }
+  },
+  "font": {
+    "sans": {
+      "$type": "fontFamily",
+      "$value": ["Public Sans", "system-ui", "sans-serif"]
+    }
+  },
+  "radius": {
+    "small": { "$type": "dimension", "$value": { "value": 4, "unit": "px" } },
+    "medium": { "$type": "dimension", "$value": { "value": 8, "unit": "px" } },
+    "large": { "$type": "dimension", "$value": { "value": 12, "unit": "px" } }
+  }
+}
+
