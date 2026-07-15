@@ -1,11 +1,27 @@
 # Mint Shelf brand
 
-The public source of approved Mint Shelf logos, portable design tokens,
-guidelines, and press-ready assets. Product and site component systems remain
-separate; each consumes an explicitly pinned revision from this repository.
+This is the public home for approved Mint Shelf brand assets. If an asset is not
+here, treat it as work in progress.
 
-Only approved assets belong here. Work in progress, campaign plans, credentials,
-and private contact information belong in private repositories.
+## The mark
 
-Use of these files is governed by [PRESS_USE.md](PRESS_USE.md). No open-source
-software license or trademark license is granted by this repository.
+![Mint Shelf mark](assets/marks/mark-green.png)
+
+- [`mark-green.svg`](assets/marks/mark-green.svg) is the preferred scalable mark.
+- [`mark-green.png`](assets/marks/mark-green.png) is the standard color mark.
+- [`mark-black.png`](assets/marks/mark-black.png) is for light backgrounds.
+- [`mark-white.png`](assets/marks/mark-white.png) is for dark backgrounds.
+- [`app-icon.png`](assets/app-icon.png) is the square application icon.
+
+Keep clear space around the mark. Do not stretch it, recolor it, add effects, or
+combine it with another company's mark.
+
+## For designers and developers
+
+[`tokens.json`](tokens.json) contains the small portable set of approved colors,
+typeface names, and corner radii. Product and website components remain in their
+own repositories.
+
+Work in progress and campaign files belong in private repositories. See
+[`LICENSE.md`](LICENSE.md) before using these assets publicly. For questions,
+email [press@mintshelf.com](mailto:press@mintshelf.com).
