@@ -4,7 +4,7 @@
     "mint": {
       "$type": "color",
       "$value": "#22c55e",
-      "$description": "MintShelf seed and recognition color"
+      "$description": "Mint Shelf seed and recognition color"
     },
     "mintDark": { "$type": "color", "$value": "#16a34a" },
     "ink": { "$type": "color", "$value": "#0f1419" },
@@ -22,4 +22,3 @@
     "large": { "$type": "dimension", "$value": { "value": 12, "unit": "px" } }
   }
 }
-
