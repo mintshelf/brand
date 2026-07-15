@@ -17,12 +17,14 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          jq empty tokens/*.json
-          test -f PRESS_USE.md
-          test -f assets/logos/mintshelf-black.png
-          test -f assets/logos/mintshelf-white.png
+          jq empty tokens.json
+          test -f LICENSE.md
+          test -f assets/app-icon.png
+          test -f assets/marks/mark-green.svg
+          test -f assets/marks/mark-green.png
+          test -f assets/marks/mark-black.png
+          test -f assets/marks/mark-white.png
           if grep -RIE '(BEGIN (RSA|OPENSSH|EC) PRIVATE KEY|ghp_[A-Za-z0-9]{20,}|sk_live_[A-Za-z0-9]+)' . --exclude-dir=.git; then
             echo 'Possible secret found.'
             exit 1
           fi
-
