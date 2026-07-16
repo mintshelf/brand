@@ -18,9 +18,18 @@ combine it with another company's mark.
 
 ## For designers and developers
 
-[`tokens.json`](tokens.json) contains the small portable set of approved colors,
-typeface names, and corner radii. Product and website components remain in their
-own repositories.
+[`tokens.json`](tokens.json) is the portable source for approved brand and
+semantic color roles, the typeface stack, and the corner-radius scale. Its light
+and dark roles are named by purpose, so each surface can consume the same visual
+contract without copying platform components.
+
+Product and Site retain their own components, layout rules, interaction states,
+and platform code. They should derive brand-facing values from an exact commit
+of this repository and must not treat local copies as new brand approvals.
+
+Run `node scripts/validate-tokens.mjs` before proposing token changes. The check
+requires a complete light and dark contract and verifies contrast for paired
+foreground and background roles.
 
 Work in progress and campaign files belong in private repositories. See
 [`LICENSE.md`](LICENSE.md) before using these assets publicly. For questions,

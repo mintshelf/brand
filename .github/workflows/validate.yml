@@ -17,7 +17,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          jq empty tokens.json
+          node scripts/validate-tokens.mjs
           test -f LICENSE.md
           test -f assets/app-icon.png
           test -f assets/marks/mark-green.svg
