@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mintshelf.com/brand/schemas/assets.schema.json",
+  "title": "Mint Shelf approved asset manifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["$schema", "version", "license", "assets"],
+  "properties": {
+    "$schema": { "const": "./schemas/assets.schema.json" },
+    "version": { "const": 1 },
+    "license": { "const": "LICENSE.md" },
+    "assets": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "path", "mediaType", "sha256", "width", "height", "purpose", "introducedBy"],
+        "properties": {
+          "id": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" },
+          "path": { "type": "string", "pattern": "^assets/(?:[a-z0-9][a-z0-9.-]*/)*[a-z0-9][a-z0-9.-]*$" },
+          "mediaType": { "enum": ["image/png", "image/svg+xml"] },
+          "sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+          "width": { "type": "integer", "minimum": 1 },
+          "height": { "type": "integer", "minimum": 1 },
+          "hasAlpha": { "type": "boolean" },
+          "viewBox": { "type": "string" },
+          "color": { "type": "string", "pattern": "^#[0-9a-f]{6}$" },
+          "purpose": { "type": "string", "minLength": 1 },
+          "introducedBy": { "type": "string", "pattern": "^[0-9a-f]{40}$" },
+          "originalPath": {
+            "type": "string",
+            "pattern": "^assets/(?:[a-z0-9][a-z0-9.-]*/)*[a-z0-9][a-z0-9.-]*$"
+          }
+        },
+        "allOf": [
+          {
+            "if": { "properties": { "mediaType": { "const": "image/png" } }, "required": ["mediaType"] },
+            "then": {
+              "required": ["hasAlpha"],
+              "not": { "anyOf": [{ "required": ["viewBox"] }, { "required": ["color"] }] }
+            }
+          },
+          {
+            "if": { "properties": { "mediaType": { "const": "image/svg+xml" } }, "required": ["mediaType"] },
+            "then": {
+              "required": ["viewBox", "color"],
+              "not": { "required": ["hasAlpha"] }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

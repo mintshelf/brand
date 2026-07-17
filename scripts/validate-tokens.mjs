@@ -3,6 +3,10 @@ import { readFile } from 'node:fs/promises';
 const tokens = JSON.parse(await readFile(new URL('../tokens.json', import.meta.url), 'utf8'));
 const HEX = /^#[0-9a-f]{6}$/;
 
+if (tokens.$extensions?.['com.mintshelf.contract']?.version !== 1) {
+  throw new Error('tokens.json must declare Mint Shelf token contract version 1');
+}
+
 const semanticNames = [
   'primary',
   'onPrimary',
