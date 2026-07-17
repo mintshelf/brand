@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+hk install --mise
+
+if git config --global --get hook.hk-pre-push.command >/dev/null; then
+  git config --local hook.hk-pre-push.enabled false
+fi
