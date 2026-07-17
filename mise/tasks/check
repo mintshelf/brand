@@ -16,3 +16,9 @@ if grep -RIE \
   echo 'Possible secret found.'
   exit 1
 fi
+
+if git config --global --get hook.hk-pre-push.command >/dev/null; then
+  ! git config --local --get hook.hk-pre-push.command >/dev/null
+else
+  git config --local --get hook.hk-pre-push.command >/dev/null
+fi
