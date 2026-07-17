@@ -1,0 +1,67 @@
+{
+  "$schema": "./schemas/assets.schema.json",
+  "version": 1,
+  "license": "LICENSE.md",
+  "assets": [
+    {
+      "id": "app-icon",
+      "path": "assets/app-icon.png",
+      "mediaType": "image/png",
+      "sha256": "2f28151914216e320a048a35d5485e18e0ee6e5ba08378f24b5ded3de88751b7",
+      "width": 1024,
+      "height": 1024,
+      "hasAlpha": true,
+      "purpose": "platform application icon",
+      "introducedBy": "6e5ccc8b4abf72bb2132593cded2ca2317c9b7d8",
+      "originalPath": "assets/icons/mintshelf-mark.png"
+    },
+    {
+      "id": "mark-black-png",
+      "path": "assets/marks/mark-black.png",
+      "mediaType": "image/png",
+      "sha256": "1aa8166c28b5f744ebfad5be3c1f07223541d5684f495333e4e3d8ef7c38e46a",
+      "width": 1600,
+      "height": 1600,
+      "hasAlpha": true,
+      "purpose": "standalone mark on light backgrounds",
+      "introducedBy": "74118d1101543f95905d64b9e6159627860dd894"
+    },
+    {
+      "id": "mark-green-png",
+      "path": "assets/marks/mark-green.png",
+      "mediaType": "image/png",
+      "sha256": "0aaefc9c6cbce29b97ae2f914c6a4f941afe9cce969b8af4b08f63e30eb306b8",
+      "width": 200,
+      "height": 200,
+      "hasAlpha": true,
+      "purpose": "standalone brand-color mark",
+      "introducedBy": "6e5ccc8b4abf72bb2132593cded2ca2317c9b7d8",
+      "originalPath": "assets/logos/mintshelf-black.png"
+    },
+    {
+      "id": "mark-green-svg",
+      "path": "assets/marks/mark-green.svg",
+      "mediaType": "image/svg+xml",
+      "sha256": "a261cb6147eb1b90a60ed63573e333627520c5d59c3432ebb707a09b98ddc811",
+      "width": 45,
+      "height": 45,
+      "viewBox": "2 1.5 45 45",
+      "color": "#22c55e",
+      "purpose": "preferred scalable standalone brand-color mark",
+      "introducedBy": "6e5ccc8b4abf72bb2132593cded2ca2317c9b7d8",
+      "originalPath": "assets/icons/mintshelf-mark.svg"
+    },
+    {
+      "id": "mark-white-png",
+      "path": "assets/marks/mark-white.png",
+      "mediaType": "image/png",
+      "sha256": "b812627e47e0c0a5f7f7fb14f59aee13b659217cb520175603bb006d61969887",
+      "width": 200,
+      "height": 200,
+      "hasAlpha": true,
+      "purpose": "standalone mark on dark backgrounds",
+      "introducedBy": "6e5ccc8b4abf72bb2132593cded2ca2317c9b7d8",
+      "originalPath": "assets/logos/mintshelf-white.png"
+    }
+  ]
+}

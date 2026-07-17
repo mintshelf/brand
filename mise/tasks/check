@@ -3,12 +3,10 @@
 set -euo pipefail
 
 node scripts/validate-tokens.mjs
+node scripts/validate-assets.mjs
 test -f LICENSE.md
-test -f assets/app-icon.png
-test -f assets/marks/mark-green.svg
-test -f assets/marks/mark-green.png
-test -f assets/marks/mark-black.png
-test -f assets/marks/mark-white.png
+test -f GUIDELINES.md
+test -f PROVENANCE.md
 
 if grep -RIE \
   '(BEGIN (RSA|OPENSSH|EC) PRIVATE KEY|ghp_[A-Za-z0-9]{20,}|sk_live_[A-Za-z0-9]+)' \
