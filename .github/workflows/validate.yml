@@ -3,7 +3,7 @@ name: Validate brand kit
 on:
   pull_request:
   push:
-    branches: [main]
+    branches: [next]
 
 permissions:
   contents: read
