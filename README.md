@@ -42,5 +42,6 @@ Install [Mise](https://mise.jdx.dev/) natively, then run `mise install` once and
 run the same repository check before pushes.
 
 Work in progress and campaign files belong in private repositories. See
-[`LICENSE.md`](LICENSE.md) before using these assets publicly. For questions,
-email [press@mintshelf.com](mailto:press@mintshelf.com).
+[`LICENSE.md`](LICENSE.md) before using these assets publicly, and carry its
+exact bytes when redistributing copied, transformed, or embedded marks. For
+questions, email [press@mintshelf.com](mailto:press@mintshelf.com).

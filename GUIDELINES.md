@@ -91,6 +91,12 @@ review. Asset hash changes always require an intentional manifest update.
 
 Record the Brand commit, consume only manifest-listed assets, preserve semantic
 names rather than raw values, verify light and dark output, test accessible
-naming, and retain [`LICENSE.md`](LICENSE.md) when redistributing the marks.
-Escalate any missing format, new lockup, campaign variant, or unclear use to
-[press@mintshelf.com](mailto:press@mintshelf.com); absence is not approval.
+naming, and retain the exact [`LICENSE.md`](LICENSE.md) bytes from the pinned
+Brand commit when redistributing a mark. Redistribution includes copied or
+renamed assets and marks embedded in generated images, video, documents, or
+other downloadable outputs. Keep the license beside those assets or at the
+repository/package root. When the root contains multiple licenses or notices,
+include the scope sentence required by the license; do not replace the license
+copy with a link or paraphrase. Escalate any missing format, new lockup, campaign
+variant, or unclear use to [press@mintshelf.com](mailto:press@mintshelf.com);
+absence is not approval.
