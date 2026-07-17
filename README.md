@@ -31,6 +31,10 @@ Run `node scripts/validate-tokens.mjs` before proposing token changes. The check
 requires a complete light and dark contract and verifies contrast for paired
 foreground and background roles.
 
+Install [Mise](https://mise.jdx.dev/) natively, then run `mise install` once and
+`mise run check` before proposing changes. Installation also configures HK to
+run the same repository check before pushes.
+
 Work in progress and campaign files belong in private repositories. See
 [`LICENSE.md`](LICENSE.md) before using these assets publicly. For questions,
 email [press@mintshelf.com](mailto:press@mintshelf.com).

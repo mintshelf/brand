@@ -1,0 +1,18 @@
+amends "package://github.com/jdx/hk/releases/download/v1.44.3/hk@1.44.3#/Config.pkl"
+
+default_branch = "refs/remotes/origin/main"
+
+local repositoryChecks = new Mapping<String, Step> {
+    ["brand-kit"] {
+        check = "mise run check"
+    }
+}
+
+hooks {
+    ["pre-push"] {
+        steps = repositoryChecks
+    }
+    ["check"] {
+        steps = repositoryChecks
+    }
+}

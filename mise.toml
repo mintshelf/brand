@@ -1,0 +1,15 @@
+min_version = "2026.6.12"
+
+[settings]
+experimental = true
+
+[tools]
+node = "22.23.0"
+hk = "1.44.3"
+pkl = "0.31.1"
+
+[hooks]
+postinstall = "mise/tasks/install/postinstall"
+
+[task_config]
+includes = ["mise/tasks"]
