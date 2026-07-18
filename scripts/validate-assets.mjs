@@ -16,6 +16,7 @@ const SHA256 = /^[0-9a-f]{64}$/;
 const COMMIT = /^[0-9a-f]{40}$/;
 const ASSET_PATH = /^assets\/(?:[a-z0-9][a-z0-9.-]*\/)*[a-z0-9][a-z0-9.-]*$/;
 const SCHEMA_SHA256 = 'cb357d1aa5c4f38c5e68eaa6326a16061723ead116e5aba324ce9144188cdcf6';
+const MARK_ALPHA_SHA256 = '34fa7edccbd30722371d7a0f240fd40bc164baea934e2dbd76cf26fdcd4469db';
 
 // The checks below intentionally mirror the dependency-free published schema.
 // Pinning its bytes makes a schema edit fail until the executable contract is
@@ -95,6 +96,9 @@ const markVariants = [
 ];
 const referenceMark = pngs.get('mark-green-png');
 if (!referenceMark) throw new Error('mark-green-png must remain the raster mark geometry reference');
+if (sha256(extractAlpha(referenceMark.pixels)) !== MARK_ALPHA_SHA256) {
+  throw new Error('mark-green-png must retain the approved Mint Shelf mark silhouette');
+}
 for (const [id, color] of markVariants) {
   const variant = pngs.get(id);
   if (!variant || variant.width !== referenceMark.width || variant.height !== referenceMark.height) {
@@ -104,7 +108,10 @@ for (const [id, color] of markVariants) {
     if (variant.pixels[offset + 3] !== referenceMark.pixels[offset + 3]) {
       throw new Error(`${id} must use the same mark silhouette as mark-green-png`);
     }
-    if (variant.pixels[offset + 3] === 255 &&
+    const colorMustMatch = id === 'mark-green-png'
+      ? variant.pixels[offset + 3] === 255
+      : variant.pixels[offset + 3] > 0;
+    if (colorMustMatch &&
         (variant.pixels[offset] !== color[0] ||
          variant.pixels[offset + 1] !== color[1] ||
          variant.pixels[offset + 2] !== color[2])) {
@@ -192,6 +199,14 @@ function paeth(left, above, upperLeft) {
   const upperLeftDistance = Math.abs(estimate - upperLeft);
   if (leftDistance <= aboveDistance && leftDistance <= upperLeftDistance) return left;
   return aboveDistance <= upperLeftDistance ? above : upperLeft;
+}
+
+function extractAlpha(pixels) {
+  const alpha = Buffer.alloc(pixels.length / 4);
+  for (let source = 3, target = 0; source < pixels.length; source += 4, target += 1) {
+    alpha[target] = pixels[source];
+  }
+  return alpha;
 }
 
 function validateSvg(asset, contents) {
