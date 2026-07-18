@@ -19,12 +19,12 @@
       "id": "mark-black-png",
       "path": "assets/marks/mark-black.png",
       "mediaType": "image/png",
-      "sha256": "1aa8166c28b5f744ebfad5be3c1f07223541d5684f495333e4e3d8ef7c38e46a",
-      "width": 1600,
-      "height": 1600,
+      "sha256": "e61f7a67a9ca033d00d88bfc8eae52b0bd97644e491937cb65d11c3bc32b5040",
+      "width": 200,
+      "height": 200,
       "hasAlpha": true,
       "purpose": "standalone mark on light backgrounds",
-      "introducedBy": "74118d1101543f95905d64b9e6159627860dd894"
+      "introducedBy": "8d3e64ba64c6703cd2c60f3b5eed02baa8bbd301"
     },
     {
       "id": "mark-green-png",
