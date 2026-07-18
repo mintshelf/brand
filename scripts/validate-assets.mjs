@@ -35,6 +35,7 @@ if (manifest.license !== 'LICENSE.md' || !Array.isArray(manifest.assets) || mani
 
 const ids = new Set();
 const paths = new Set();
+const pngs = new Map();
 for (const asset of manifest.assets) {
   const common = ['id', 'path', 'mediaType', 'sha256', 'width', 'height', 'purpose', 'introducedBy'];
   const format = asset.mediaType === 'image/png' ? ['hasAlpha'] : ['viewBox', 'color'];
@@ -71,7 +72,7 @@ for (const asset of manifest.assets) {
   const digest = sha256(contents);
   if (digest !== asset.sha256) throw new Error(`${asset.path} does not match its approved SHA-256 digest`);
 
-  if (asset.mediaType === 'image/png') validatePng(asset, contents);
+  if (asset.mediaType === 'image/png') pngs.set(asset.id, validatePng(asset, contents));
   else if (asset.mediaType === 'image/svg+xml') validateSvg(asset, contents.toString('utf8'));
   else throw new Error(`${asset.id} has unsupported media type ${asset.mediaType}`);
 
@@ -84,6 +85,31 @@ for (const asset of manifest.assets) {
   });
   if (sha256(stdout) !== asset.sha256) {
     throw new Error(`${asset.id} provenance does not resolve to the approved bytes at ${asset.introducedBy}:${historicalPath}`);
+  }
+}
+
+const markVariants = [
+  ['mark-black-png', [0, 0, 0]],
+  ['mark-green-png', [34, 197, 94]],
+  ['mark-white-png', [255, 255, 255]],
+];
+const referenceMark = pngs.get('mark-green-png');
+if (!referenceMark) throw new Error('mark-green-png must remain the raster mark geometry reference');
+for (const [id, color] of markVariants) {
+  const variant = pngs.get(id);
+  if (!variant || variant.width !== referenceMark.width || variant.height !== referenceMark.height) {
+    throw new Error(`${id} must use the same raster dimensions as mark-green-png`);
+  }
+  for (let offset = 0; offset < variant.pixels.length; offset += 4) {
+    if (variant.pixels[offset + 3] !== referenceMark.pixels[offset + 3]) {
+      throw new Error(`${id} must use the same mark silhouette as mark-green-png`);
+    }
+    if (variant.pixels[offset + 3] === 255 &&
+        (variant.pixels[offset] !== color[0] ||
+         variant.pixels[offset + 1] !== color[1] ||
+         variant.pixels[offset + 2] !== color[2])) {
+      throw new Error(`${id} must use its approved solid color without embedded artwork`);
+    }
   }
 }
 
@@ -138,9 +164,34 @@ function validatePng(asset, contents) {
   const pixels = inflateSync(compressed);
   const rowSize = width * 4 + 1;
   if (pixels.length !== rowSize * height) throw new Error(`${asset.path} has incomplete PNG pixel data`);
+  const decoded = Buffer.alloc(width * height * 4);
   for (let row = 0; row < height; row += 1) {
-    if (pixels[row * rowSize] > 4) throw new Error(`${asset.path} uses an invalid PNG row filter`);
+    const filterType = pixels[row * rowSize];
+    if (filterType > 4) throw new Error(`${asset.path} uses an invalid PNG row filter`);
+    for (let column = 0; column < width * 4; column += 1) {
+      const encoded = pixels[row * rowSize + 1 + column];
+      const output = row * width * 4 + column;
+      const left = column >= 4 ? decoded[output - 4] : 0;
+      const above = row > 0 ? decoded[output - width * 4] : 0;
+      const upperLeft = row > 0 && column >= 4 ? decoded[output - width * 4 - 4] : 0;
+      const predictor = filterType === 0 ? 0
+        : filterType === 1 ? left
+          : filterType === 2 ? above
+            : filterType === 3 ? Math.floor((left + above) / 2)
+              : paeth(left, above, upperLeft);
+      decoded[output] = (encoded + predictor) & 0xff;
+    }
   }
+  return { width, height, pixels: decoded };
+}
+
+function paeth(left, above, upperLeft) {
+  const estimate = left + above - upperLeft;
+  const leftDistance = Math.abs(estimate - left);
+  const aboveDistance = Math.abs(estimate - above);
+  const upperLeftDistance = Math.abs(estimate - upperLeft);
+  if (leftDistance <= aboveDistance && leftDistance <= upperLeftDistance) return left;
+  return aboveDistance <= upperLeftDistance ? above : upperLeft;
 }
 
 function validateSvg(asset, contents) {
