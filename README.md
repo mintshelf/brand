@@ -24,10 +24,10 @@ consumers should pin the exact Brand commit they adopt.
 
 ## Logo usage
 
-The mark and logo are always `#22c55e`. There are no approved black, white,
-gradient, outlined, or alternate-color variants. If the green is not visually
-distinct on a surface, change the surface or placement rather than recoloring
-the identity.
+The mark is always `#22c55e`; there are no approved black, white, gradient,
+outlined, or alternate-color mark variants. In the primary logo, the name uses
+the light-theme `onSurface` color, `#1a1c19`. If the mark is not visually
+distinct on a surface, change the surface or placement rather than recoloring it.
 
 Keep clear space equal to at least one quarter of the mark's visible width on
 every side. Render the standalone mark at least 24 CSS pixels wide on screen or
@@ -53,11 +53,12 @@ use the mark as an unlabeled control or as the only indication of state.
   `system-ui`, then `sans-serif`
 
 The logo lettering is an exact rendering of the Public Sans Medium font bundled
-by Product. The SVG stores those real letterforms as outlines so it does not
-require the font to be installed; the PNG is a direct rasterization of that same
-SVG. No image model is used to draw the name. Brand does not define UI palettes,
-type scales, spacing, radii, elevation, components, or page layouts; those
-decisions belong to Product, Site, and CMS.
+by Product. Its mark-to-type scale and spacing match Product's 36 px mark,
+16 px gap, and 22 px title treatment. The SVG stores those real letterforms as
+outlines so it does not require the font to be installed; the PNG is a direct
+rasterization of that same SVG. No image model is used to draw the name. Brand
+does not define UI palettes, type scales, spacing, radii, elevation, components,
+or page layouts; those decisions belong to Product, Site, and CMS.
 
 ## Motion
 
