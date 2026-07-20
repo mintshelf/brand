@@ -34,13 +34,6 @@ Product and CMS consumers retain their own delivery systems and should derive
 brand-facing values from an exact commit of this repository. They must not
 treat local copies as new brand approvals.
 
-The repository check requires a complete light and dark token contract, verifies
-contrast for paired roles, and rejects asset drift from the approved manifest.
-
-Install [Mise](https://mise.jdx.dev/) natively, then run `mise install` once and
-`mise run check` before proposing changes. Installation also configures HK to
-run the same repository check before pushes.
-
 Work in progress and campaign files belong in private repositories. See
 [`LICENSE.md`](LICENSE.md) before using these assets publicly, and carry its
 exact bytes when redistributing copied, transformed, or embedded marks. For

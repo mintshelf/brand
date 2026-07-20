@@ -9,9 +9,8 @@ The machine-readable [`assets.json`](assets.json) records the SHA-256 digest,
 dimensions, media type, purpose, first repository commit, and original path for
 every approved binary and vector asset.
 
-The recorded commits establish the reviewed repository chain of custody, and
-the repository check verifies that each commit contains the approved bytes at
-the recorded path. The initial kit was introduced in commit
+The recorded commits establish the repository chain of custody. The initial kit
+was introduced in commit
 `6e5ccc8b4abf72bb2132593cded2ca2317c9b7d8`. Commit
 `74118d1101543f95905d64b9e6159627860dd894` established the current public
 paths but accidentally placed an unrelated third-party mark at the black-mark
@@ -21,7 +20,7 @@ in Git history but are not a Mint Shelf asset and are not approved for use.
 
 These records do not grant rights beyond the brand asset license. If an asset
 is replaced, retain its prior record in Git history and update the manifest in
-the same reviewed change.
+the same change.
 
 ## Public Sans
 
