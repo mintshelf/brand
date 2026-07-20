@@ -1,50 +1,93 @@
 # Mint Shelf brand
 
-This repository is the canonical public home for the approved Mint Shelf
-identity. If an asset is not listed in [`assets.json`](assets.json), treat it as
-unapproved.
+This repository is the public source for the approved Mint Shelf identity and
+downloadable brand assets.
 
-## The mark
+![Mint Shelf logo](assets/logo.svg)
 
-![Mint Shelf mark](assets/marks/mark-green.svg)
+## Identity
 
-The Mint Shelf mark is always green. It is a four-leaf symbol with controlled
-asymmetry: balanced as a whole, organic on closer inspection.
+The **mark** is the standalone four-leaf symbol. The **logo** combines that exact
+mark with the name “Mint Shelf” rendered in Public Sans Medium. The **app icon**
+places the mark on a fixed square surface for operating systems and app stores.
 
-- [`mark-green.svg`](assets/marks/mark-green.svg) is the canonical mark.
-- [`mark-green.png`](assets/marks/mark-green.png) is the standard raster export.
-- [`app-icon.svg`](assets/app-icon.svg) is the scalable application-icon source.
-- [`app-icon.png`](assets/app-icon.png) is the 1024-pixel application-icon source.
+| Asset | SVG | PNG | Use |
+| --- | --- | --- | --- |
+| Primary logo | [`logo.svg`](assets/logo.svg) | [`logo.png`](assets/logo.png) | Default company identification |
+| Mark | [`mark.svg`](assets/mark.svg) | [`mark.png`](assets/mark.png) | Compact or already-labelled contexts |
+| App icon | [`app-icon.svg`](assets/app-icon.svg) | [`app-icon.png`](assets/app-icon.png) | Platform icon generation only |
+| Motion reference | [`motion-reference.svg`](assets/motion-reference.svg) | — | Non-production animation reference |
 
-There are no approved black or white variants, wordmarks, or lockups. Use the
-mark with the live-text name “Mint Shelf” when the name must accompany it.
+[`brand.json`](brand.json) exposes the same asset paths, colors, and typeface in
+a small machine-readable form. Git commits provide versioning and integrity;
+consumers should pin the exact Brand commit they adopt.
 
-## Usage and motion
+## Logo usage
 
-[`GUIDELINES.md`](GUIDELINES.md) defines clear space, minimum size,
-accessibility, permitted transforms, and consumer boundaries. [`MOTION.md`](MOTION.md)
-defines the orbit-and-settle entrance and its reduced-motion behavior.
+The mark and logo are always `#22c55e`. There are no approved black, white,
+gradient, outlined, or alternate-color variants. If the green is not visually
+distinct on a surface, change the surface or placement rather than recoloring
+the identity.
 
-[`assets.json`](assets.json) is the machine-readable approved-asset inventory.
-It records stable identifiers, paths, formats, dimensions, and SHA-256 digests.
-[`PROVENANCE.md`](PROVENANCE.md) records the retired placeholder and the origin
-of the current mark. [`CLEARANCE.md`](CLEARANCE.md) records the preliminary
-similarity search and the remaining professional-clearance gate.
+Keep clear space equal to at least one quarter of the mark's visible width on
+every side. Render the standalone mark at least 24 CSS pixels wide on screen or
+8 mm wide in print. Scale assets uniformly. Do not crop, stretch, rotate,
+rearrange, redraw, outline, add effects, or change the spacing within the logo.
 
-Run `node scripts/check.mjs` before proposing a Brand change. The dependency-free
-check rejects unlisted files, black or white variants, hash drift, dimension
-drift, and changes to the fixed recognition color.
+Use the supplied primary logo when an exported asset must contain both the symbol
+and company name. In application and web interfaces, the same treatment may be
+built accessibly from the mark plus live text set in Public Sans Medium. Use the
+standalone mark when Mint Shelf is already named nearby or the context is very
+compact. Never use generated or model-drawn lettering for the company name.
 
-## Tokens
+For accessibility, hide a decorative identity asset with `alt=""` or
+`aria-hidden="true"`. When it identifies the organization, provide “Mint Shelf”
+as alternative text or through visible text in the same link or control. Never
+use the mark as an unlabeled control or as the only indication of state.
 
-[`tokens.json`](tokens.json) contains only the fixed mark color, application-icon
-surface, and brand typeface stack. Semantic UI colors, radii, type scales,
-spacing, and components belong to each consumer rather than to Brand.
+## Color and typography
 
-Consumers pin an exact Brand commit. This repository does not publish software
-packages or require a release workflow; its continuous check only validates the
-asset inventory and fixed brand decisions.
+- Mint: `#22c55e`
+- Application-icon surface: `#f9faf4`
+- Typeface: [Public Sans](https://github.com/uswds/public-sans), then
+  `system-ui`, then `sans-serif`
 
-Work in progress and campaign files belong outside this public repository. See
-[`LICENSE.md`](LICENSE.md) before using the approved assets publicly. For
-questions, email [press@mintshelf.com](mailto:press@mintshelf.com).
+The logo lettering is an exact rendering of the Public Sans Medium font bundled
+by Product. The SVG stores those real letterforms as outlines so it does not
+require the font to be installed; the PNG is a direct rasterization of that same
+SVG. No image model is used to draw the name. Brand does not define UI palettes,
+type scales, spacing, radii, elevation, components, or page layouts; those
+decisions belong to Product, Site, and CMS.
+
+## Motion
+
+The preferred entrance distributes the four leaves around a broad clockwise
+orbit, then moves them along curved paths into the exact still geometry. Each
+leaf may rotate counterclockwise during assembly, but all rotation stops when
+the mark settles.
+
+- Assembly: approximately 1,500 ms
+- Easing: approximately `cubic-bezier(.22, 1, .36, 1)`
+- Hold before transition: at least 400 ms
+- Optional surface fade: 500 ms
+- Stagger: none by default
+
+[`motion-reference.svg`](assets/motion-reference.svg) loops only to demonstrate
+the idea. Production implementations should play once, use native motion
+primitives, and finish on the canonical mark. When reduced motion is requested,
+show the complete mark immediately with an opacity transition no longer than
+200 ms. Do not substitute orbiting, pulsing, scaling, or continuous rotation.
+
+## Ownership boundaries
+
+- **Brand** owns the approved identity assets, recognition color, app-icon
+  surface, typeface choice, and usage rules in this repository.
+- **Product** owns platform icon generation, semantic UI colors, typography
+  scales, components, layout, interaction states, and production motion code.
+- **Site** owns web presentation, favicon generation, page composition, and
+  web-specific accessibility behavior.
+- **CMS** owns editorial treatments, campaigns, screenshots, photography,
+  partner material, and channel-specific output.
+
+See [`LICENSE.md`](LICENSE.md) before using these assets publicly. Questions may
+be sent to [press@mintshelf.com](mailto:press@mintshelf.com).
