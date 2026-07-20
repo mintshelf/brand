@@ -1,13 +1,13 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://mintshelf.com/brand/schemas/assets.schema.json",
-  "title": "Mint Shelf approved asset manifest",
+  "title": "Mint Shelf approved asset manifest version 2",
   "type": "object",
   "additionalProperties": false,
   "required": ["$schema", "version", "license", "assets"],
   "properties": {
     "$schema": { "const": "./schemas/assets.schema.json" },
-    "version": { "const": 1 },
+    "version": { "const": 2 },
     "license": { "const": "LICENSE.md" },
     "assets": {
       "type": "array",
@@ -15,7 +15,7 @@
       "items": {
         "type": "object",
         "additionalProperties": false,
-        "required": ["id", "path", "mediaType", "sha256", "width", "height", "purpose", "introducedBy"],
+        "required": ["id", "path", "mediaType", "sha256", "width", "height", "purpose"],
         "properties": {
           "id": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" },
           "path": { "type": "string", "pattern": "^assets/(?:[a-z0-9][a-z0-9.-]*/)*[a-z0-9][a-z0-9.-]*$" },
@@ -26,12 +26,7 @@
           "hasAlpha": { "type": "boolean" },
           "viewBox": { "type": "string" },
           "color": { "type": "string", "pattern": "^#[0-9a-f]{6}$" },
-          "purpose": { "type": "string", "minLength": 1 },
-          "introducedBy": { "type": "string", "pattern": "^[0-9a-f]{40}$" },
-          "originalPath": {
-            "type": "string",
-            "pattern": "^assets/(?:[a-z0-9][a-z0-9.-]*/)*[a-z0-9][a-z0-9.-]*$"
-          }
+          "purpose": { "type": "string", "minLength": 1 }
         },
         "allOf": [
           {
