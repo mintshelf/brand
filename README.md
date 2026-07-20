@@ -28,6 +28,7 @@ The mark is always `#22c55e`; there are no approved black, white, gradient,
 outlined, or alternate-color mark variants. In the primary logo, the name uses
 the light-theme `onSurface` color, `#1a1c19`. If the mark is not visually
 distinct on a surface, change the surface or placement rather than recoloring it.
+The mark's visible outer bounds form a centered 1:1 square.
 
 Keep clear space equal to at least one quarter of the mark's visible width on
 every side. Render the standalone mark at least 24 CSS pixels wide on screen or

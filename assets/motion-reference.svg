@@ -18,19 +18,19 @@
           <g transform="translate(-32 -32)">
             <g>
               <animateTransform attributeName="transform" type="translate" values="-28 -28;0 0;0 0" keyTimes="0;.62;1" dur="2.3s" repeatCount="indefinite" calcMode="spline" keySplines=".22 .61 .36 1;0 0 1 1"/>
-              <g transform="translate(5.5 4) scale(.2994652406) translate(-27 -28)"><use href="#leaf-top-left"/></g>
+              <g transform="translate(32 0) scale(1.0573 1) translate(-32 0) translate(5.5 4) scale(.2994652406) translate(-27 -28)"><use href="#leaf-top-left"/></g>
             </g>
             <g>
               <animateTransform attributeName="transform" type="translate" values="28 -28;0 0;0 0" keyTimes="0;.62;1" dur="2.3s" repeatCount="indefinite" calcMode="spline" keySplines=".22 .61 .36 1;0 0 1 1"/>
-              <g transform="translate(5.5 4) scale(.2994652406) translate(-27 -28)"><use href="#leaf-top-right"/></g>
+              <g transform="translate(32 0) scale(1.0573 1) translate(-32 0) translate(5.5 4) scale(.2994652406) translate(-27 -28)"><use href="#leaf-top-right"/></g>
             </g>
             <g>
               <animateTransform attributeName="transform" type="translate" values="28 28;0 0;0 0" keyTimes="0;.62;1" dur="2.3s" repeatCount="indefinite" calcMode="spline" keySplines=".22 .61 .36 1;0 0 1 1"/>
-              <g transform="translate(5.5 4) scale(.2994652406) translate(-27 -28)"><use href="#leaf-bottom-right"/></g>
+              <g transform="translate(32 0) scale(1.0573 1) translate(-32 0) translate(5.5 4) scale(.2994652406) translate(-27 -28)"><use href="#leaf-bottom-right"/></g>
             </g>
             <g>
               <animateTransform attributeName="transform" type="translate" values="-28 28;0 0;0 0" keyTimes="0;.62;1" dur="2.3s" repeatCount="indefinite" calcMode="spline" keySplines=".22 .61 .36 1;0 0 1 1"/>
-              <g transform="translate(5.5 4) scale(.2994652406) translate(-27 -28)"><use href="#leaf-bottom-left"/></g>
+              <g transform="translate(32 0) scale(1.0573 1) translate(-32 0) translate(5.5 4) scale(.2994652406) translate(-27 -28)"><use href="#leaf-bottom-left"/></g>
             </g>
           </g>
         </g>
