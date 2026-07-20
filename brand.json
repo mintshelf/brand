@@ -23,6 +23,7 @@
     "appIcon": {
       "svg": "assets/app-icon.svg",
       "png": "assets/app-icon.png"
-    }
+    },
+    "motionReference": "assets/motion-reference.svg"
   }
 }

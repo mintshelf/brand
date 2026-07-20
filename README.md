@@ -16,6 +16,7 @@ places the mark on a fixed square surface for operating systems and app stores.
 | Primary logo | [`logo.svg`](assets/logo.svg) | [`logo.png`](assets/logo.png) | Default company identification |
 | Mark | [`mark.svg`](assets/mark.svg) | [`mark.png`](assets/mark.png) | Compact or already-labelled contexts |
 | App icon | [`app-icon.svg`](assets/app-icon.svg) | [`app-icon.png`](assets/app-icon.png) | Platform icon generation only |
+| Motion reference | [`motion-reference.svg`](assets/motion-reference.svg) | — | Approved Coherent Pinwheel entrance |
 
 [`brand.json`](brand.json) exposes the same asset paths, colors, and typeface in
 a small machine-readable form. Git commits provide versioning and integrity;
@@ -59,11 +60,31 @@ rasterization of that same SVG. No image model is used to draw the name. Brand
 does not define UI palettes, type scales, spacing, radii, elevation, components,
 or page layouts; those decisions belong to Product, Site, and CMS.
 
+## Motion
+
+**Coherent Pinwheel** is the approved entrance for the mark. The four leaves act
+as one organized system: they begin at 58% scale with equal diagonal separation,
+complete one clockwise turn while contracting, briefly reach 104.5% scale, and
+settle into the exact still mark. The leaves remain evenly related throughout;
+they do not arrive independently or cross through the center.
+
+- Assembly: approximately 1,425 ms
+- Reference cycle: 2,300 ms, including the inspection hold
+- Opacity entrance: approximately 300 ms
+- Motion easing: approximately `cubic-bezier(.22, .61, .36, 1)`
+- Scale: `0.58` → `1.045` → `1`
+- Rotation: one clockwise turn
+
+[`motion-reference.svg`](assets/motion-reference.svg) loops only for inspection.
+Production implementations should play once, finish on the canonical mark, and
+coordinate any surrounding splash content separately. When reduced motion is
+requested, show the complete mark immediately or use an opacity transition no
+longer than 200 ms; do not rotate, contract, or overshoot it.
+
 ## Ownership boundaries
 
 - **Brand** owns the approved identity assets, recognition color, app-icon
-  surface, typeface choice, and approved usage rules in this repository. Motion
-  remains unspecified until a direction is reviewed and accepted.
+  surface, typeface choice, approved motion, and usage rules in this repository.
 - **Product** owns platform icon generation, semantic UI colors, typography
   scales, components, layout, interaction states, and production motion code.
 - **Site** owns web presentation, favicon generation, page composition, and
