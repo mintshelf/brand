@@ -15,8 +15,7 @@ orientation, clear space, and visual appearance.
 
 You may not alter the identity, imply sponsorship or endorsement, register a
 confusingly similar mark, use the assets as your own brand, or use them in a
-misleading or unlawful way. The approved motion described in [`README.md`](README.md)
-does not authorize third-party alterations.
+misleading or unlawful way.
 
 This is a limited brand-use permission, not an open-source software license or a
 transfer of trademark rights. Contact
