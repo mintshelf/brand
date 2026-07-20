@@ -3,6 +3,7 @@
   "name": "Mint Shelf",
   "colors": {
     "mint": "#22c55e",
+    "wordmark": "#1a1c19",
     "appIconSurface": "#f9faf4"
   },
   "font": {
