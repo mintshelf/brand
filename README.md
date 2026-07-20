@@ -30,9 +30,9 @@ stable identifiers, paths, formats, dimensions, SHA-256 digests, purposes, and
 repository provenance. [`PROVENANCE.md`](PROVENANCE.md) documents rights and the
 Public Sans dependency boundary.
 
-Product, Site, Content, Marketing, and Media Tools each retain their own delivery
-systems and should derive brand-facing values from an exact commit of this
-repository. They must not treat local copies as new brand approvals.
+Product and CMS consumers retain their own delivery systems and should derive
+brand-facing values from an exact commit of this repository. They must not
+treat local copies as new brand approvals.
 
 The repository check requires a complete light and dark token contract, verifies
 contrast for paired roles, and rejects asset drift from the approved manifest.
