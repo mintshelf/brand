@@ -16,7 +16,6 @@ places the mark on a fixed square surface for operating systems and app stores.
 | Primary logo | [`logo.svg`](assets/logo.svg) | [`logo.png`](assets/logo.png) | Default company identification |
 | Mark | [`mark.svg`](assets/mark.svg) | [`mark.png`](assets/mark.png) | Compact or already-labelled contexts |
 | App icon | [`app-icon.svg`](assets/app-icon.svg) | [`app-icon.png`](assets/app-icon.png) | Platform icon generation only |
-| Motion reference | [`motion-reference.svg`](assets/motion-reference.svg) | — | Non-production animation reference |
 
 [`brand.json`](brand.json) exposes the same asset paths, colors, and typeface in
 a small machine-readable form. Git commits provide versioning and integrity;
@@ -60,29 +59,11 @@ rasterization of that same SVG. No image model is used to draw the name. Brand
 does not define UI palettes, type scales, spacing, radii, elevation, components,
 or page layouts; those decisions belong to Product, Site, and CMS.
 
-## Motion
-
-The preferred entrance distributes the four leaves around a broad clockwise
-orbit, then moves them along curved paths into the exact still geometry. Each
-leaf may rotate counterclockwise during assembly, but all rotation stops when
-the mark settles.
-
-- Assembly: approximately 1,500 ms
-- Easing: approximately `cubic-bezier(.22, 1, .36, 1)`
-- Hold before transition: at least 400 ms
-- Optional surface fade: 500 ms
-- Stagger: none by default
-
-[`motion-reference.svg`](assets/motion-reference.svg) loops only to demonstrate
-the idea. Production implementations should play once, use native motion
-primitives, and finish on the canonical mark. When reduced motion is requested,
-show the complete mark immediately with an opacity transition no longer than
-200 ms. Do not substitute orbiting, pulsing, scaling, or continuous rotation.
-
 ## Ownership boundaries
 
 - **Brand** owns the approved identity assets, recognition color, app-icon
-  surface, typeface choice, and usage rules in this repository.
+  surface, typeface choice, and approved usage rules in this repository. Motion
+  remains unspecified until a direction is reviewed and accepted.
 - **Product** owns platform icon generation, semantic UI colors, typography
   scales, components, layout, interaction states, and production motion code.
 - **Site** owns web presentation, favicon generation, page composition, and
