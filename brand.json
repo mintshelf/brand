@@ -8,7 +8,8 @@
   },
   "font": {
     "family": "Public Sans",
-    "logoWeight": 500,
+    "logoWeight": 650,
+    "logoLetterSpacingEm": -0.025,
     "fallbacks": ["system-ui", "sans-serif"]
   },
   "assets": {

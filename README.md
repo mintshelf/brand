@@ -8,8 +8,9 @@ downloadable brand assets.
 ## Identity
 
 The **mark** is the standalone four-leaf symbol. The **logo** combines that exact
-mark with the name “Mint Shelf” rendered in Public Sans Medium. The **app icon**
-places the mark on a fixed square surface for operating systems and app stores.
+mark with the name “Mint Shelf” rendered in Public Sans at weight 650. The
+**app icon** places the mark on a fixed square surface for operating systems and
+app stores.
 
 | Asset | SVG | PNG | Use |
 | --- | --- | --- | --- |
@@ -37,9 +38,9 @@ rearrange, redraw, outline, add effects, or change the spacing within the logo.
 
 Use the supplied primary logo when an exported asset must contain both the symbol
 and company name. In application and web interfaces, the same treatment may be
-built accessibly from the mark plus live text set in Public Sans Medium. Use the
-standalone mark when Mint Shelf is already named nearby or the context is very
-compact. Never use generated or model-drawn lettering for the company name.
+built accessibly from the mark plus live text set in Public Sans at weight 650.
+Use the standalone mark when Mint Shelf is already named nearby or the context is
+very compact. Never use generated or model-drawn lettering for the company name.
 
 For accessibility, hide a decorative identity asset with `alt=""` or
 `aria-hidden="true"`. When it identifies the organization, provide “Mint Shelf”
@@ -53,13 +54,14 @@ use the mark as an unlabeled control or as the only indication of state.
 - Typeface: [Public Sans](https://github.com/uswds/public-sans), then
   `system-ui`, then `sans-serif`
 
-The logo lettering is an exact rendering of the Public Sans Medium font bundled
-by Product. Its mark-to-type scale and spacing match Product's 36 px mark,
-16 px gap, and 22 px title treatment. The SVG stores those real letterforms as
-outlines so it does not require the font to be installed; the PNG is a direct
-rasterization of that same SVG. No image model is used to draw the name. Brand
-does not define UI palettes, type scales, spacing, radii, elevation, components,
-or page layouts; those decisions belong to Product, Site, and CMS.
+The logo lettering is an exact rendering of Public Sans at weight 650. Its
+mark-to-type scale and spacing match Site's 40 px mark, 10 px gap, 1.65 rem
+(26.4 px at a 16 px root) title treatment, and `-0.025em` tracking. The SVG
+stores those real letterforms as outlines so it does not require the font to be
+installed; the PNG is a direct rasterization of that same SVG. No image model is
+used to draw the name. Brand does not define UI palettes, type scales, spacing,
+radii, elevation, components, or page layouts; those decisions belong to
+Product, Site, and CMS.
 
 ## Motion
 
