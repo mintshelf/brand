@@ -1,3 +1,5 @@
+RECENT NOTE: I liked what i saw on https://github.com/PostHog/brand maybe we could carefully consider taking some inspiration, idk
+
 # Mint Shelf brand
 
 This repository is the public source for the approved Mint Shelf identity and
